@@ -1,0 +1,14 @@
+import network
+
+# Configurar el WiFi en modo estación
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+
+# Obtener la dirección MAC en formato binario
+mac_bin = wlan.config('mac')
+
+# Convertir la dirección MAC a formato legible
+mac_str = ':'.join('%02x' % b for b in mac_bin)
+
+print("Dirección MAC en formato binario:", mac_bin)
+print("Dirección MAC en formato legible:", mac_str)
